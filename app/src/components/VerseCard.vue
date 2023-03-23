@@ -5,7 +5,7 @@
             <div class="mt-2">
                 <p>Título: <span class="verse-title copyable" @click="copyText">Devocional Cafezinho - {{source}}</span></p>
                 <p>Arquivo: <span class="copyable" @click="copyText">devocional - {{date.toISOString().substring(0, 10).replaceAll("-","")}}</span></p>
-                <div class="m-0 copyable d-flex flex-column" @click="copyText">
+                <div class="m-0 copyable d-flex flex-column" @click="copyVerse">
                     <pre class=""><span class="verse-text">{{ text }}</span>&#x0d;&#x0a;<span class="verse-source">{{ source }}</span></pre>
                 </div>
             </div>
@@ -26,6 +26,10 @@ export default {
     methods: {
         copyText(event: any){
             navigator.clipboard.writeText(event.target.innerHTML);
+        },
+        copyVerse(){
+            const fulltext = (this.text || "") + "\n" + (this.source || "");
+            navigator.clipboard.writeText(fulltext);
         }
     }
 }
