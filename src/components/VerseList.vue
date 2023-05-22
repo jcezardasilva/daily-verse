@@ -6,8 +6,8 @@
             <input type="date" class="form-control" @input="setDate">
         </div>
         <div class="parameter ms-1 me-1">
-            <label>Data Inicial</label>
-            <input type="number" class="form-control" @input="setQtd">
+            <label>Quantidade</label>
+            <input type="number" class="form-control" @input="setQtd" placeholder="6" value="6">
         </div>
         <div class="mt-4 ms-1 me-1">
             <button @click="get" class="btn btn-secondary">
@@ -50,7 +50,7 @@ export default {
         return {
             verses: new Array<Verse>(),
             date: new Date(),
-            qtd: 10,
+            qtd: 6,
             inputFile: false
         };
     },
